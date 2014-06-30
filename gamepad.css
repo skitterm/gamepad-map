@@ -1,0 +1,82 @@
+div, h3 {
+	font-family: arial;
+}
+
+html, body, #mapdiv {
+	padding: 0px;
+	margin: 0px;
+	overflow: hidden;
+}
+
+/* overrides to jsapi css */
+
+.esriSimpleSlider {
+	display: none !important;
+}
+
+
+/* overrides to jsapi css */
+
+#mapdiv {
+    width:100%;
+    height:100%;
+	display:block;
+}
+
+#header {
+	height: 71px;
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	z-index: 100;
+	background: rgba(200,200,200,0.8);
+}
+
+#title {
+	position: absolute;
+	top: 15px;
+	left: 90px;
+	font-size: 26px;
+	z-index: 100;
+}
+
+#title h3 {
+	margin: 0px;
+}
+
+#connect-status {
+
+	border-radius: 23px;
+	position: absolute;
+	top: 2px;
+	right: 7px;
+	z-index: 100;
+}
+
+#help-pics {
+	position: absolute;
+	bottom: 0px;
+	display: none;
+	right: 0px;
+	background-color: rgba(200,200,200, 0.8);
+	width: 100%;
+	z-index: 100;
+}
+
+#bookmarks {
+	background: rgba(200,200,200,0.8);
+	bottom: 0px;
+	font-size: 30px;
+	display: none;
+	padding: 7px 20px;
+	position: absolute;
+	z-index: 100;
+}
+
+.connected {
+	background-color: rgb(43, 187, 89);
+}
+
+.disconnected {
+	background-color: rgb(230, 100, 100);
+}
