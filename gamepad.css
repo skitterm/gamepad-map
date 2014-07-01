@@ -1,11 +1,15 @@
-div, h3 {
-	font-family: arial;
+
+* {
+	outline: none;
+	box-sizing:border-box;
 }
 
-html, body, #mapdiv {
+body {
 	padding: 0px;
 	margin: 0px;
 	overflow: hidden;
+	-webkit-font-smoothing: antialiased;
+	font-family: "Helvetica Neue", sans-serif;
 }
 
 /* overrides to jsapi css */
@@ -14,6 +18,17 @@ html, body, #mapdiv {
 	display: none !important;
 }
 
+table {
+	color: #fff !important;
+}
+
+.esriLegendLayerLabel, .esriLegendLayer {
+	color: #fff !important;
+}
+
+.esriLegendServiceLabel {
+	display: none !important;
+}
 
 /* overrides to jsapi css */
 
@@ -29,14 +44,15 @@ html, body, #mapdiv {
 	top: 0px;
 	width: 100%;
 	z-index: 100;
-	background: rgba(200,200,200,0.8);
+	color: #fff;
+	background: rgba(0,0,0,0.5);
 }
 
 #title {
 	position: absolute;
 	top: 15px;
 	left: 90px;
-	font-size: 26px;
+	font-size: 30px;
 	z-index: 100;
 }
 
@@ -53,23 +69,36 @@ html, body, #mapdiv {
 	z-index: 100;
 }
 
+#help-text {
+	display: inline-block;
+	position: absolute;
+	right: 100px;
+	top: 20px;
+	font-size: 20px;
+}
+
+#legend-div {
+	background: rgba(0,0,0,0.4);
+	display: none;
+	min-height: 200px;
+	max-height: 500px;	
+	min-width: 250px;
+	max-width: 400px;
+	overflow-y: auto;
+	position: absolute !important;
+	right: 10px;
+	top: 200px;
+	padding: 20px;
+	border-radius: 5px;
+	color: #fff !important;
+}
+
 #help-pics {
 	position: absolute;
 	bottom: 0px;
-	display: none;
 	right: 0px;
-	background-color: rgba(200,200,200, 0.8);
+	background-color: rgba(255,255,255, 0.6);
 	width: 100%;
-	z-index: 100;
-}
-
-#bookmarks {
-	background: rgba(200,200,200,0.8);
-	bottom: 0px;
-	font-size: 30px;
-	display: none;
-	padding: 7px 20px;
-	position: absolute;
 	z-index: 100;
 }
 

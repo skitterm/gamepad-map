@@ -5,7 +5,7 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
     <link rel="stylesheet" href="http://js.arcgis.com/3.9/js/esri/css/esri.css">
     <link rel="stylesheet" type="text/css" href="gamepad.css">
     <script src="http://js.arcgis.com/3.9/"></script>
@@ -14,13 +14,15 @@
 
 <body>
     <div id="header">
-        <img src="esri-logo.png" style="padding:0 10px;width:64px;height:64px;"/>
-        <div id="title"></div>
+        <img src="esri-logo.png" style="margin:0 10px;width:64px;height:64px;"/>
+        <div id="title">Loading ...</div>
+        <div id="help-text"></div>
         <div id="connect-status">
             <img src="controller.png">
         </div>
     </div>
     <div id="mapdiv"></div>
+    <div id="legend-div"></div>
     <div id="bookmarks"></div>
     <div id="help-pics">
         <img src="controllerhelp.png">
