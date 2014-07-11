@@ -2,9 +2,10 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <title>Game Pad</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+
 
     <link rel="stylesheet" href="http://js.arcgis.com/3.9/js/esri/css/esri.css">
     <link rel="stylesheet" type="text/css" href="gamepad.css">
@@ -14,23 +15,25 @@
 
 <body>
     <div id="header">
-        <img src="esri-logo.png" style="margin:0 10px;width:64px;height:64px;"/>
-        <div id="title">Loading ...</div>
-        <div id="help-text"></div>
-        <div id="connect-status">
-            <img src="controller.png">
+        <img id="logo" src="esri-logo.png"/>
+        <div id="title">
+            <h3 id="title-text">Loading...</h3>
         </div>
+        <div id="help-text"></div>
+        <div id="connect-status" class="disconnected">
+            <img src="controller.png">            
+        </div>
+        <!-- <div id="help-button">
+            <h2>?</h2>
+        </div> -->
     </div>
     <div id="mapdiv"></div>
     <div id="legend-div"></div>
     <div id="bookmarks"></div>
     <div id="help-pics">
-        <img src="controllerhelp.png">
-        <img src="topcontrollerhelp.png">
-        <!--
-        <img src="controller.png">
-        <img src="topviewcontroller.png">
-    -->
+        <!-- <span id="close-help">X</span> -->
+        <img src="controllerhelpdark.png">
+        <img src="topcontrollerhelpdark.png">
     </div>
 </body>
 

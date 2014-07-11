@@ -1,7 +1,7 @@
  var hasGP = false;
  var mymap = null;
  var mapResponse = null;
- var helpHidden = false;
+ var helpHidden = true;
  var isButtonBusy = false;
  var showingLegend = false;
  var showingTitleBar = true;
@@ -15,7 +15,7 @@
  //webmapgallery = [];
 
 
- var basemapTypes = ['streets', 'satellite', 'hybrid', 'topo', 'gray', 'oceans', 'national-geographic', 'osm'];
+ var basemapTypes = ['streets', 'hybrid', 'topo', 'gray', 'oceans', 'national-geographic', 'osm'];
  var basemapIndex = 0;
  var bookmarkIndex = 0;
  var mapIndex = 0;
@@ -44,7 +44,10 @@
          'use strict';
          //get webmap id
          var webmapid = 'd94dcdbe78e141c2b2d3a91d5ca8b9c9';
-         var groupid = 'f4373b6eae144e26a634937269d336ec';
+         var groupid = '46b23d6bfae34260a61b1ea4e266b4a4';
+
+          var defaultGeometryServerUrl = document.location.protocol + "//utility.arcgisonline.com/arcgis/rest/services/Geometry/GeometryServer";
+          esri.config.defaults.geometryService = new esri.tasks.GeometryService(defaultGeometryServerUrl);
 
          var hrefObject = esri.urlToObject(document.location.href);
          if (hrefObject.query && hrefObject.query.webmap) {
@@ -90,9 +93,6 @@
              //add the map
              loadMap(webmapid);
          }
-
-
-
      });
 
  });
@@ -100,6 +100,8 @@
 
  function loadMap(webmapid) {
      require(['dojo/_base/array'], function(arrayUtils) {
+        dojo.byId('help-text').style.display = 'inline-block';
+         dojo.byId('help-text').innerHTML = 'Press \'A\' to get help.';
          if (mymap) {
              mymap.destroy();
              //legendDijit.destroy();
@@ -107,7 +109,7 @@
              basemapIndex = 0;
              bookmarkIndex = 0;
              if (overviewMapDijit) overviewMapDijit.destroy();
-             dojo.byId('bookmarks').style.display = 'none';
+             //dojo.byId('bookmarks').style.display = 'none';
              dojo.byId('help-text').innerHTML = '';
              dojo.byId("title").innerHTML = "Loading ...";
          }
@@ -135,8 +137,8 @@
 
 
              isBusy = false;
+             changedOriginalText = true;
              //call gamepadinit
-             var layers = [];
 
              if (legendDijit) {
                 legendDijit.layerInfos = legendLayers;
@@ -158,6 +160,7 @@
              });
 
              overviewMapDijit.startup();
+             overviewMapDijit.show();
 
              hasBookmarks();
 
@@ -346,14 +349,14 @@
      // if there are any...     
      var bookmarks = mapResponse.itemInfo.itemData.bookmarks;
      if (bookmarks && bookmarks.length > 0) {
-         overviewMapDijit.show();
-         dojo.byId('bookmarks').style.display = "inline-block";
+         //overviewMapDijit.show();
+         //dojo.byId('bookmarks').style.display = "inline-block";
          var pluralSuffix = bookmarks.length > 1 ? 's' : '';
          var bookmarkText = bookmarks.length + ' Bookmark' + pluralSuffix + ' available! Press B to get started.';
          dojo.byId('help-text').innerHTML = bookmarkText;
      } else {
-         dojo.byId('help-text').innerHTML = '';
-         overviewMapDijit.hide();
+         //dojo.byId('help-text').innerHTML = '';
+         //overviewMapDijit.hide();
      }
  }
 
@@ -363,8 +366,8 @@
          console.log("Changing bookmark");
          // set this to do.
          if (bookmarkIndex > bookmarks.length - 1) {
-             dojo.byId('bookmarks').style.display = 'none';
-             overviewMapDijit.hide();
+             //dojo.byId('bookmarks').style.display = 'none';
+             //overviewMapDijit.hide();
              bookmarkIndex = 0;
              var pluralSuffix = bookmarks.length > 1 ? 's' : '';
              var bookmarkText = bookmarks.length + ' Bookmark' + pluralSuffix + ' available! Press B to get started.';
@@ -373,13 +376,16 @@
          } else {
              // set extent
              //console.log('showing bookmark ' + (bookmarkIndex + 1));
-             overviewMapDijit.show();
-             dojo.byId('bookmarks').style.display = 'inline-block';
+             //overviewMapDijit.show();
+             //dojo.byId('bookmarks').style.display = 'inline-block';
              dojo.byId('help-text').innerHTML = "Showing Bookmark " + (bookmarkIndex + 1) + ' of ' + bookmarks.length;
              var newExtent = new esri.geometry.Extent(bookmarks[bookmarkIndex].extent);
              mymap.setExtent(newExtent, true);
              bookmarkIndex++;
          }
+     }
+     else {
+        dojo.byId('help-text').innerHTML = 'No bookmarks to show.';
      }
  }
 

@@ -20,6 +20,7 @@ body {
 
 table {
 	color: #fff !important;
+	font-size: 24px;
 }
 
 .esriLegendLayerLabel, .esriLegendLayer {
@@ -45,61 +46,97 @@ table {
 	width: 100%;
 	z-index: 100;
 	color: #fff;
-	background: rgba(0,0,0,0.5);
+	background: rgba(0,0,0,0.6);
+}
+
+#logo {
+	height: 71px;
+	width: auto;
 }
 
 #title {
 	position: absolute;
 	top: 15px;
-	left: 90px;
+	left: 110px;
 	font-size: 30px;
 	z-index: 100;
 }
 
 #title h3 {
 	margin: 0px;
+	font-size: 30px;
 }
 
 #connect-status {
-
-	border-radius: 23px;
+	height: 100%;
 	position: absolute;
-	top: 2px;
-	right: 7px;
+	top: 0px;
+	right: 0px;
 	z-index: 100;
+}
+
+#help-button {
+	display: inline-block;
+	font-size: 42px;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	background-color: #33A7E1;
+	height: 100%;
+	padding: 0px 12px;
+}
+
+#help-button h2 {
+	margin: 0px;
 }
 
 #help-text {
-	display: inline-block;
+	display: none;
 	position: absolute;
-	right: 100px;
-	top: 20px;
-	font-size: 20px;
+	right: 78px;
+	top: 19px;
+	font-size: 24px;
 }
 
 #legend-div {
-	background: rgba(0,0,0,0.4);
+	background: rgba(0,0,0,0.7);
 	display: none;
+	font-size: 28px;
 	min-height: 200px;
-	max-height: 500px;	
-	min-width: 250px;
-	max-width: 400px;
+	max-height: 70%;	
+	min-width: 15%;
+	max-width: 25%;
 	overflow-y: auto;
 	position: absolute !important;
-	right: 10px;
-	top: 200px;
+	right: 0px;
+	top: 20%;
 	padding: 20px;
-	border-radius: 5px;
+	border-radius: 5px 0px 0px 5px;
 	color: #fff !important;
+	z-index: 200;
 }
 
 #help-pics {
+	display: none;
 	position: absolute;
 	bottom: 0px;
 	right: 0px;
-	background-color: rgba(255,255,255, 0.6);
+	background: rgba(0,0,0,0.8);
 	width: 100%;
 	z-index: 100;
+}
+
+#help-pics img {
+	width: 49%;
+}
+
+#close-help {
+	color: white;
+	cursor: pointer;
+	font-weight: bold;
+	font-size: 24px;
+	position: absolute;
+	right: 5px;
 }
 
 .connected {
@@ -108,4 +145,147 @@ table {
 
 .disconnected {
 	background-color: rgb(230, 100, 100);
+}
+
+@media all and (min-width: 2000px) {
+	#logo {
+		height: 100px;
+	}
+
+	#header {
+		height: 100px;
+	}
+
+	#title {
+		top: 25px;
+		left: 120px;
+	}
+
+	table {
+		font-size: 26px;
+	}
+
+	#title h3{
+		font-size: 35px;
+	}
+
+	#help-text {
+		font-size: 30px;
+		top: 29px;
+		right: 110px;
+	}
+
+	#connect-status img {
+		content: url('controller128.png');
+		margin-top: 4px;
+		width: 91px;
+	}
+}
+
+@media all and (min-width: 1200px) and (max-width: 1500px) {
+	#logo {
+		height: 60px;
+	}
+
+	#header {
+		height: 60px;
+	}
+
+	#title {
+		top: 14px;
+		left: 75px;
+	}
+
+	table {
+		font-size: 20px;
+	}
+
+	#title h3{
+		font-size: 26px;
+	}
+
+	#connect-status img {
+		height: 60px;
+	}
+
+	#help-text {
+		font-size: 20px;
+		top: 17px;
+	}
+}
+
+@media all and (min-width: 905px) and (max-width: 1200px) {
+	#logo {
+		height: 55px;
+	}
+
+	#header {
+		height: 55px;
+	}
+
+	#title {
+		top: 11px;
+		left: 75px;
+	}
+
+	table {
+		font-size: 18px;
+	}
+
+	#title h3{
+		font-size: 26px;
+	}
+
+	#connect-status img {
+		height: 55px;
+	}
+
+	#help-text {
+		font-size: 20px;
+		position: absolute;
+		right: 0px;
+		top: 55px;
+		background: rgba(0,0,0,0.6);
+		padding: 7px 10px;
+	}
+}
+
+@media all and (min-width: 600px) and (max-width: 905px) {
+	#logo {
+		height: 45px;
+	}
+
+	#header {
+		height: 45px;
+	}
+
+	#title {
+		top: 8px;
+		left: 60px;
+	}
+
+	#title h3{
+		font-size: 24px;
+	}
+
+	#connect-status img {
+		height: 45px;
+	}
+
+	#help-text {
+		font-size: 20px;
+		position: absolute;
+		right: 0px;
+		top: 45px;
+		background: rgba(0,0,0,0.6);
+		padding: 7px 10px;
+	}
+
+	#legend-div {
+		max-width: 35%;
+	}
+
+	table {
+		font-size: 16px;
+	}
 }
